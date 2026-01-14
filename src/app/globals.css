@@ -8,15 +8,15 @@
 }
 
 :root {
-  /* Gentle autumn palette - warm background applied site-wide */
-  --background: #FDF8F3;
-  --background-card: #FFFFFF;
-  --foreground: #5C4033;
-  --foreground-muted: #8B7355;
+  /* Dark theme with warm white stars */
+  --background: #0f0a06;
+  --background-card: #1A1A1A;
+  --foreground: #F5F5F5;
+  --foreground-muted: #B8B8B8;
   --primary: #C67B4E;
-  --primary-hover: #B5693F;
-  --border: rgba(92, 64, 51, 0.12);
-  --border-strong: rgba(92, 64, 51, 0.25);
+  --primary-hover: #D68A5F;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
 }
 
 @theme inline {

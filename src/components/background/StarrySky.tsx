@@ -96,8 +96,8 @@ export function StarrySky() {
           0,
           Math.PI * 2
         );
-        // More visible stars - using darker color with higher opacity
-        ctx.fillStyle = `rgba(92, 64, 51, ${currentOpacity * 0.8})`; // Foreground color, more visible
+        // Warm white stars on dark background
+        ctx.fillStyle = `rgba(255, 249, 230, ${currentOpacity * 0.9})`; // Warm white/cream color
         ctx.fill();
       });
 
