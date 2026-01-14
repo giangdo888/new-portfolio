@@ -31,7 +31,7 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm"
+          ? "bg-[#FDF8F3]/95 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -40,7 +40,7 @@ export function Header() {
           <a
             href="#hero"
             onClick={(e) => handleNavClick(e, "#hero")}
-            className="text-4xl text-neutral-900"
+            className="text-4xl text-foreground"
             style={{ fontFamily: 'Bestermind' }}
           >
             JD
@@ -53,7 +53,7 @@ export function Header() {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
+                  className="text-sm text-foreground-muted hover:text-foreground transition-colors"
                 >
                   {link.name}
                 </a>
@@ -63,7 +63,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-neutral-600 hover:text-neutral-900"
+            className="md:hidden p-2 text-foreground-muted hover:text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -80,7 +80,7 @@ export function Header() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="block text-neutral-600 hover:text-neutral-900 transition-colors"
+                    className="block text-foreground-muted hover:text-foreground transition-colors"
                   >
                     {link.name}
                   </a>

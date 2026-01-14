@@ -23,11 +23,11 @@ export function Section({ id, title, subtitle, children, className }: SectionPro
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-lg text-neutral-600 max-w-2xl">{subtitle}</p>
+              <p className="text-lg text-foreground-muted max-w-2xl">{subtitle}</p>
             )}
           </motion.div>
         )}

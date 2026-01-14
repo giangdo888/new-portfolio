@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { personalInfo } from "@/data/portfolio";
+import { Badge } from "@/components/ui/Badge";
+import { personalInfo, skills } from "@/data/portfolio";
 
 export function Hero() {
   const handleScrollToProjects = () => {
@@ -13,30 +14,35 @@ export function Hero() {
     }
   };
 
-  const handleScrollToContact = () => {
-    const element = document.querySelector("#contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col justify-center relative pt-20"
+      className="min-h-screen flex flex-col justify-center relative pt-24"
     >
       <div className="mx-auto max-w-6xl px-6 py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-3xl"
+          className="max-w-3xl mx-auto text-center"
         >
+          {/* Profile photo placeholder */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.15, duration: 0.5 }}
+            className="mb-8 flex justify-center"
+          >
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border border-border-strong bg-background-card mx-auto flex items-center justify-center text-foreground-muted text-sm">
+              Your photo
+            </div>
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-neutral-500 text-lg mb-4"
+            className="text-foreground-muted text-lg mb-4"
           >
             Hello, I&apos;m
           </motion.p>
@@ -45,7 +51,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-900 mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
           >
             {personalInfo.name}
           </motion.h1>
@@ -54,7 +60,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-2xl md:text-3xl text-neutral-600 mb-6"
+            className="text-2xl md:text-3xl text-primary mb-6"
           >
             {personalInfo.role}
           </motion.h2>
@@ -63,22 +69,39 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-lg text-neutral-600 mb-10 max-w-2xl leading-relaxed"
+            className="text-lg text-foreground-muted mb-10 max-w-2xl leading-relaxed mx-auto"
           >
             {personalInfo.tagline}
           </motion.p>
+
+          {/* Skills above buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.6 }}
+            className="mb-8"
+          >
+            <div className="flex flex-wrap gap-2 justify-center">
+              {skills.map((skill) => (
+                <Badge key={skill.name} className="text-xs">
+                  {skill.name}
+                </Badge>
+              ))}
+            </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button onClick={handleScrollToProjects} size="lg">
               View My Work
             </Button>
-            <Button variant="outline" onClick={handleScrollToContact} size="lg">
-              Get in Touch
+            <Button variant="outline" href="/resume.pdf" download size="lg">
+              <Download size={18} className="mr-2" />
+              Download CV
             </Button>
           </motion.div>
         </motion.div>
@@ -94,7 +117,7 @@ export function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="text-neutral-400"
+          className="text-foreground-muted"
         >
           <ArrowDown size={24} />
         </motion.div>

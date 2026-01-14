@@ -4,6 +4,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   href?: string;
+  download?: boolean;
   children: React.ReactNode;
 }
 
@@ -11,20 +12,21 @@ export function Button({
   variant = "primary",
   size = "md",
   href,
+  download,
   children,
   className,
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full";
+    "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-full cursor-pointer";
 
   const variants = {
     primary:
-      "bg-neutral-900 text-white hover:bg-neutral-800 active:bg-neutral-700",
+      "bg-primary text-white hover:bg-primary-hover active:opacity-90",
     secondary:
-      "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 active:bg-neutral-300",
+      "bg-background-card text-foreground hover:bg-primary/10 active:bg-primary/15",
     outline:
-      "border border-neutral-300 text-neutral-700 hover:bg-neutral-50 hover:border-neutral-400",
+      "border border-border-strong text-foreground hover:bg-primary/10 hover:border-foreground-muted",
   };
 
   const sizes = {
@@ -37,7 +39,7 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} download={download}>
         {children}
       </a>
     );

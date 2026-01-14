@@ -47,10 +47,10 @@ export function Contact() {
           className="space-y-8"
         >
           <div>
-            <h3 className="text-xl font-semibold text-neutral-900 mb-6">
+            <h3 className="text-xl font-semibold text-foreground mb-6">
               Let&apos;s Connect
             </h3>
-            <p className="text-neutral-600 leading-relaxed">
+            <p className="text-foreground-muted leading-relaxed">
               I&apos;m always open to discussing new projects, creative ideas, or
               opportunities to be part of your visions.
             </p>
@@ -58,14 +58,14 @@ export function Contact() {
 
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center">
-                <Mail size={18} className="text-neutral-600" />
+              <div className="w-10 h-10 bg-primary/15 rounded-lg flex items-center justify-center">
+                <Mail size={18} className="text-primary" />
               </div>
               <div>
-                <p className="text-sm text-neutral-500">Email</p>
+                <p className="text-sm text-foreground-muted">Email</p>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="text-neutral-900 hover:text-neutral-600 transition-colors"
+                  className="text-foreground hover:text-primary transition-colors"
                 >
                   {personalInfo.email}
                 </a>
@@ -73,12 +73,12 @@ export function Contact() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center">
-                <MapPin size={18} className="text-neutral-600" />
+              <div className="w-10 h-10 bg-primary/15 rounded-lg flex items-center justify-center">
+                <MapPin size={18} className="text-primary" />
               </div>
               <div>
-                <p className="text-sm text-neutral-500">Location</p>
-                <p className="text-neutral-900">{personalInfo.location}</p>
+                <p className="text-sm text-foreground-muted">Location</p>
+                <p className="text-foreground">{personalInfo.location}</p>
               </div>
             </div>
           </div>
@@ -96,7 +96,7 @@ export function Contact() {
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-neutral-700 mb-2"
+              className="block text-sm font-medium text-foreground mb-2"
             >
               Name
             </label>
@@ -107,7 +107,7 @@ export function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-white border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-background-card border border-border rounded-xl text-foreground placeholder-foreground-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               placeholder="Your name"
             />
           </div>
@@ -115,7 +115,7 @@ export function Contact() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-neutral-700 mb-2"
+              className="block text-sm font-medium text-foreground mb-2"
             >
               Email
             </label>
@@ -126,7 +126,7 @@ export function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-white border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-background-card border border-border rounded-xl text-foreground placeholder-foreground-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
               placeholder="your@email.com"
             />
           </div>
@@ -134,7 +134,7 @@ export function Contact() {
           <div>
             <label
               htmlFor="message"
-              className="block text-sm font-medium text-neutral-700 mb-2"
+              className="block text-sm font-medium text-foreground mb-2"
             >
               Message
             </label>
@@ -145,7 +145,7 @@ export function Contact() {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full px-4 py-3 bg-white border border-neutral-200 rounded-xl text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all resize-none"
+              className="w-full px-4 py-3 bg-background-card border border-border rounded-xl text-foreground placeholder-foreground-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
               placeholder="Tell me about your project..."
             />
           </div>

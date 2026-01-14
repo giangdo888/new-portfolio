@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "motion/react";
 import { ExternalLink, Github } from "lucide-react";
 import { Section } from "@/components/layout/Section";
@@ -15,29 +16,46 @@ export function Projects() {
     >
       <div className="grid md:grid-cols-2 gap-6">
         {projects.map((project, index) => (
-          <motion.article
+          <motion.div
             key={project.id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group bg-white rounded-2xl border border-neutral-100 overflow-hidden hover:shadow-lg transition-all duration-300"
+            className="group bg-background-card rounded-2xl border border-border overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer block"
+            role="button"
+            tabIndex={0}
+            onClick={() => {
+              const url = project.liveUrl || project.githubUrl;
+              if (url) {
+                window.open(url, "_blank", "noopener,noreferrer");
+              }
+            }}
+            onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                const url = project.liveUrl || project.githubUrl;
+                if (url) {
+                  window.open(url, "_blank", "noopener,noreferrer");
+                }
+              }
+            }}
           >
             {/* Project Image Placeholder */}
-            <div className="aspect-video bg-gradient-to-br from-neutral-100 to-neutral-200 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-400">
+            <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/20 relative overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center text-foreground-muted">
                 <span className="text-sm">Project Preview</span>
               </div>
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-neutral-900/0 group-hover:bg-neutral-900/5 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />
             </div>
 
             <div className="p-6">
-              <h3 className="text-xl font-semibold text-neutral-900 mb-2 group-hover:text-neutral-700 transition-colors">
+              <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {project.title}
               </h3>
 
-              <p className="text-neutral-600 text-sm mb-4 leading-relaxed">
+              <p className="text-foreground-muted text-sm mb-4 leading-relaxed">
                 {project.description}
               </p>
 
@@ -49,24 +67,20 @@ export function Projects() {
                 ))}
               </div>
 
-              <div className="flex items-center gap-4 pt-4 border-t border-neutral-100">
+              <div className="flex items-center gap-4 pt-4 border-t border-border">
                 {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
-                  >
+                  <span className="flex items-center gap-2 text-sm text-primary">
                     <ExternalLink size={16} />
-                    Live Demo
-                  </a>
+                    View Demo
+                  </span>
                 )}
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-2 text-sm text-foreground-muted hover:text-primary transition-colors"
                   >
                     <Github size={16} />
                     Source Code
@@ -74,7 +88,7 @@ export function Projects() {
                 )}
               </div>
             </div>
-          </motion.article>
+          </motion.div>
         ))}
       </div>
     </Section>
