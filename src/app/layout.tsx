@@ -10,15 +10,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "John Doe | UI/UX Designer & Developer",
+  title: "Austin Do | Software Engineer",
   description:
-    "Portfolio of John Doe - A UI/UX Designer and Developer crafting beautiful, user-centered digital experiences.",
-  keywords: ["UI/UX Designer", "Developer", "Portfolio", "Web Design", "React", "Next.js"],
-  authors: [{ name: "John Doe" }],
+    "Portfolio of Austin Do - A Software Engineer working on backend and frontend development.",
+  keywords: ["Software Engineer", "Portfolio", "Web Design", ".NET", "C#", "C++", "Qt", "PostgreSQL", "Docker", "AWS", "React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS", "JavaScript", "Git"],
+  authors: [{ name: "Austin Do" }],
   openGraph: {
-    title: "John Doe | UI/UX Designer & Developer",
+    title: "Austin Do | Software Engineer",
     description:
-      "Portfolio of John Doe - A UI/UX Designer and Developer crafting beautiful, user-centered digital experiences.",
+      "Portfolio of Austin Do - A Software Engineer working on backend and frontend development.",
     type: "website",
     locale: "en_US",
   },

@@ -8,12 +8,12 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-sm text-foreground-muted">
-            {currentYear} John Doe. All rights reserved.
+            {currentYear} Austin Do. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/giangdo888"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground-muted hover:text-foreground transition-colors"
@@ -22,7 +22,7 @@ export function Footer() {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/giangdodo/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground-muted hover:text-foreground transition-colors"
