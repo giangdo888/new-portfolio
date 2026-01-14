@@ -5,6 +5,7 @@ export interface Experience {
   startDate: string;
   endDate: string;
   description: string[];
+  logo?: string; // Optional path to company logo
 }
 
 export interface Project {
@@ -26,9 +27,9 @@ export interface Education {
   id: string;
   institution: string;
   degree: string;
-  field: string;
   startDate: string;
   endDate: string;
+  logo?: string; // Optional path to institution logo
 }
 
 export interface SocialLink {

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
 import { Section } from "@/components/layout/Section";
 import { Badge } from "@/components/ui/Badge";
@@ -41,11 +42,21 @@ export function Projects() {
               }
             }}
           >
-            {/* Project Image Placeholder */}
+            {/* Project Image */}
             <div className="aspect-video bg-gradient-to-br from-primary/10 to-primary/20 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-foreground-muted">
-                <span className="text-sm">Project Preview</span>
-              </div>
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={`${project.title} preview`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center text-foreground-muted">
+                  <span className="text-sm">Project Preview</span>
+                </div>
+              )}
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />
             </div>

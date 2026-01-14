@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import { ArrowDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -17,24 +18,31 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col justify-center relative pt-24"
+      className="min-h-screen flex flex-col justify-center relative pt-3"
     >
-      <div className="mx-auto max-w-6xl px-6 py-24">
+      <div className="mx-auto max-w-6xl px-6 py-12 pb-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-3xl mx-auto text-center"
         >
-          {/* Profile photo placeholder */}
+          {/* Profile photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.15, duration: 0.5 }}
             className="mb-8 flex justify-center"
           >
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border border-border-strong bg-background-card mx-auto flex items-center justify-center text-foreground-muted text-sm">
-              Your photo
+            <div className="w-32 h-32 md:w-60 md:h-60 rounded-full border border-border-strong bg-background-card overflow-hidden relative">
+              <Image
+                src="/profile-photo-v2.jpg" // Change this to your image filename
+                alt={`${personalInfo.name} profile picture`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 128px, 160px"
+                priority
+              />
             </div>
           </motion.div>
 
@@ -42,7 +50,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-foreground-muted text-lg mb-4"
+            className="text-foreground-muted text-lg"
           >
             Hello, I&apos;m
           </motion.p>
@@ -51,7 +59,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl mb-4 font-bold text-foreground leading-tight"
           >
             {personalInfo.name}
           </motion.h1>
@@ -69,7 +77,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-lg text-foreground-muted mb-10 max-w-2xl leading-relaxed mx-auto"
+            className="text-lg text-foreground-muted mb-6 max-w-2xl leading-relaxed mx-auto"
           >
             {personalInfo.tagline}
           </motion.p>
@@ -107,12 +115,12 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - hidden on small screens */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

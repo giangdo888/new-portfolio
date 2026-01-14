@@ -43,7 +43,7 @@ export function Header() {
             className="text-4xl text-foreground"
             style={{ fontFamily: 'Bestermind' }}
           >
-            JD
+            Austin Do
           </a>
 
           {/* Desktop Navigation */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import { Section } from "@/components/layout/Section";
 import { experiences } from "@/data/portfolio";
 
@@ -45,9 +46,19 @@ export function Experience() {
 
               <div className="bg-background-card p-6 rounded-2xl border border-border shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                 <div className="flex items-start justify-between gap-4 mb-4">
-                  {/* Company logo placeholder */}
-                  <div className="w-12 h-12 rounded-full border border-border-strong bg-background flex items-center justify-center text-xs font-semibold text-foreground-muted flex-shrink-0">
-                    {getCompanyInitials(exp.company)}
+                  {/* Company logo */}
+                  <div className="w-12 h-12 rounded-full border border-border-strong bg-background flex items-center justify-center text-xs font-semibold text-foreground-muted flex-shrink-0 overflow-hidden relative">
+                    {exp.logo ? (
+                      <Image
+                        src={exp.logo}
+                        alt={`${exp.company} logo`}
+                        fill
+                        className="object-cover"
+                        sizes="48px"
+                      />
+                    ) : (
+                      getCompanyInitials(exp.company)
+                    )}
                   </div>
 
                   <div className="flex-1">

@@ -1,11 +1,19 @@
 "use client";
 
 import { motion } from "motion/react";
-import { GraduationCap } from "lucide-react";
+import Image from "next/image";
 import { Section } from "@/components/layout/Section";
 import { education } from "@/data/portfolio";
 
 export function Education() {
+  const getInstitutionInitials = (name: string) =>
+    name
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase())
+      .join("");
+
   return (
     <Section
       id="education"
@@ -24,8 +32,19 @@ export function Education() {
             className="bg-background-card p-6 rounded-2xl border border-border shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/15 rounded-xl flex items-center justify-center flex-shrink-0">
-                <GraduationCap size={24} className="text-primary" />
+              {/* Institution logo */}
+              <div className="w-12 h-12 rounded-full border border-border-strong bg-background flex items-center justify-center text-xs font-semibold text-foreground-muted flex-shrink-0 overflow-hidden relative">
+                {edu.logo ? (
+                  <Image
+                    src={edu.logo}
+                    alt={`${edu.institution} logo`}
+                    fill
+                    className="object-cover"
+                    sizes="48px"
+                  />
+                ) : (
+                  getInstitutionInitials(edu.institution)
+                )}
               </div>
 
               <div className="flex-1">
@@ -38,7 +57,6 @@ export function Education() {
                   </span>
                 </div>
 
-                <p className="text-foreground-muted mb-1">{edu.field}</p>
                 <p className="text-foreground-muted text-sm">{edu.institution}</p>
               </div>
             </div>
