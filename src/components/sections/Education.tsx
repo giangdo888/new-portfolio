@@ -19,7 +19,6 @@ export function Education() {
       id="education"
       title="Education"
       subtitle="My academic background and qualifications."
-      className="bg-primary/6"
     >
       <div className="grid md:grid-cols-2 gap-6">
         {education.map((edu, index) => (
@@ -57,7 +56,9 @@ export function Education() {
                   </span>
                 </div>
 
-                <p className="text-foreground-muted text-sm">{edu.institution}</p>
+                <p className="text-foreground-muted text-sm">
+                  {edu.institution}
+                </p>
               </div>
             </div>
           </motion.div>

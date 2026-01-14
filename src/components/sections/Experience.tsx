@@ -19,7 +19,6 @@ export function Experience() {
       id="experience"
       title="Experience"
       subtitle="My professional journey and the companies I've had the pleasure to work with."
-      className="bg-primary/6"
     >
       <div className="relative">
         {/* Timeline Line */}

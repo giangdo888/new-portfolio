@@ -8,8 +8,8 @@
 }
 
 :root {
-  /* Gentle autumn palette - ultra light background */
-  --background: #FFFEFC;
+  /* Gentle autumn palette - warm background applied site-wide */
+  --background: #FDF8F3;
   --background-card: #FFFFFF;
   --foreground: #5C4033;
   --foreground-muted: #8B7355;
